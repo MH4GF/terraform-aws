@@ -12,28 +12,28 @@ refresh: terraform/refresh     ## terraform refresh
 
 ### init
 terraform/init:
-	@terraform $(@F)
+	@docker-compose run --rm terraform $(@F)
 
 ### fmt
 terraform/fmt:
-	@terraform $(@F) -write=true
+	@docker-compose run --rm terraform $(@F) -write=true
 
 ### plan
 terraform/plan: terraform/init terraform/fmt
-	@terraform $(@F)
+	@docker-compose run --rm terraform $(@F)
 
 ### apply
 terraform/apply: terraform/init terraform/fmt
-	@terraform $(@F)
+	@docker-compose run --rm terraform $(@F)
 
 ### output
 terraform/output: terraform/init terraform/fmt
-	@terraform $(@F)
+	@docker-compose run --rm terraform $(@F)
 
 ### show
 terraform/show: terraform/init terraform/fmt
-	@terraform $(@F)
+	@docker-compose run --rm terraform $(@F)
 
 ### refresh
 terraform/refresh: terraform/init terraform/fmt
-	@terraform $(@F)
+	@docker-compose run --rm terraform $(@F)

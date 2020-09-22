@@ -1,0 +1,10 @@
+version: '3.6'
+
+services:
+  terraform:
+    image: hashicorp/terraform:0.13.3
+    volumes:
+      - .:/terraform
+      - ~/.aws:/root/.aws
+    working_dir: /terraform
+    tty: true
