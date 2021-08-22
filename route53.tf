@@ -11,3 +11,7 @@ resource "aws_route53_record" "cosmic-night-run" {
   ttl     = 300
 }
 
+# Google Domainsでドメインを管理し、ネームサーバーをAWSで管理する
+resource "aws_route53_zone" "mh4gf-dev" {
+  name = "mh4gf.dev"
+}
