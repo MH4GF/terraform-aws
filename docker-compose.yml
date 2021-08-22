@@ -2,7 +2,7 @@ version: '3.6'
 
 services:
   terraform:
-    image: hashicorp/terraform:0.13.3
+    image: hashicorp/terraform:1.0.5
     volumes:
       - .:/terraform
       - ~/.aws:/root/.aws
