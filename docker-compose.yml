@@ -2,9 +2,10 @@ version: '3.6'
 
 services:
   terraform:
-    image: hashicorp/terraform:1.0.5
+    build: .
+    env_file: 
+      - .env
     volumes:
       - .:/terraform
-      - ~/.aws:/root/.aws
     working_dir: /terraform
     tty: true
