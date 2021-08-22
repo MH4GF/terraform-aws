@@ -4,8 +4,17 @@
 
 # usage
 
-docker-composeでセットアップしているため、直接以下を叩く
+## 環境変数の追加
 
 ```
-make plan
+cp .env.example .env
+# AWSのアクセスキーなどを追加
+```
+
+## docker-composeで操作
+```
+docker-compose up --build -d
+docker-compose exec terraform sh
+
+terraform plan
 ```
