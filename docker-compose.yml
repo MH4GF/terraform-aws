@@ -6,6 +6,6 @@ services:
     env_file: 
       - .env
     volumes:
-      - .:/terraform
+      - .:/terraform:cached
     working_dir: /terraform
     tty: true
