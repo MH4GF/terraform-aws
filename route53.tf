@@ -15,3 +15,20 @@ resource "aws_route53_record" "cosmic-night-run" {
 resource "aws_route53_zone" "mh4gf-dev" {
   name = "mh4gf.dev"
 }
+
+# super.soで利用
+resource "aws_route53_record" "mh4gf-dev-a" {
+  name    = "@"
+  zone_id = aws_route53_zone.mh4gf-dev.zone_id
+  type    = "A"
+  records = ["76.76.21.21"]
+  ttl     = 300
+}
+
+resource "aws_route53_record" "mh4gf-dev-cname" {
+  name    = "www"
+  zone_id = aws_route53_zone.mh4gf-dev.zone_id
+  type    = "CNAME"
+  records = ["cname.super.so"]
+  ttl     = 300
+}
