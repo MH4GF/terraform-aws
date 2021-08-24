@@ -18,7 +18,7 @@ resource "aws_route53_zone" "mh4gf-dev" {
 
 # super.soで利用
 resource "aws_route53_record" "mh4gf-dev-a" {
-  name    = "@"
+  name    = aws_route53_zone.mh4gf-dev.name
   zone_id = aws_route53_zone.mh4gf-dev.zone_id
   type    = "A"
   records = ["76.76.21.21"]
