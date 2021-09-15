@@ -11,3 +11,12 @@ resource "aws_iam_user" "github-actions" {
 resource "aws_iam_access_key" "github-actions" {
   user = aws_iam_user.github-actions.name
 }
+
+data "aws_iam_policy" "read-only-access" {
+  arn = "arn:aws:iam::aws:policy/ReadOnlyAccess"
+}
+
+resource "aws_iam_user_policy_attachment" "github-actions" {
+  user       = aws_iam_user.github-actions.name
+  policy_arn = data.aws_iam_policy.read-only-access.arn
+}
