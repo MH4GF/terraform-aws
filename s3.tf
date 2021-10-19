@@ -1,6 +1,21 @@
 resource "aws_s3_bucket" "ort-aws-log" {
   bucket = "ort-aws-log"
   acl    = "private"
+
+  versioning {
+    enabled = true
+  }
+
+  server_side_encryption_configuration {
+    rule {
+      bucket_key_enabled = true
+
+      apply_server_side_encryption_by_default {
+        kms_master_key_id = aws_kms_key.ort-aws-log-kms-key.arn
+        sse_algorithm     = "aws:kms"
+      }
+    }
+  }
 }
 
 resource "aws_s3_bucket_public_access_block" "ort-aws-log" {
