@@ -1,6 +1,6 @@
 # terraform-aws
 
-個人開発で使うterraformリソース  
+個人開発で使うterraformリソース
 
 # usage
 
@@ -16,5 +16,5 @@ cp .env.example .env
 docker-compose up --build -d
 docker-compose exec terraform sh
 
-terraform plan
+terraform init
 ```
