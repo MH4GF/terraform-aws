@@ -16,6 +16,21 @@ resource "aws_s3_bucket" "ort-aws-log" {
       }
     }
   }
+  lifecycle_rule {
+    abort_incomplete_multipart_upload_days = 0
+    enabled                                = true
+    id                                     = "ort-aws-log-delete-lifecycle"
+
+    expiration {
+      days                         = 180
+      expired_object_delete_marker = false
+    }
+
+    noncurrent_version_expiration {
+      days = 360
+    }
+  }
+
 }
 
 resource "aws_s3_bucket_public_access_block" "ort-aws-log" {
