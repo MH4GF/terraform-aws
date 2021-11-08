@@ -1,0 +1,20 @@
+{
+	"name": "terraform",
+
+	"dockerComposeFile": [
+		"../docker-compose.yml"
+	],
+	"service": "terraform",
+	"workspaceFolder": "/terraform",
+	"settings": {
+    "cSpell.words": [],
+    "editor.formatOnSave": true
+  },
+	"extensions": [
+		"yzhang.markdown-all-in-one",
+		"eamodio.gitlens",
+		"streetsidesoftware.code-spell-checker",
+		"editorconfig.editorconfig",
+		"hashicorp.terraform"
+	]
+}
