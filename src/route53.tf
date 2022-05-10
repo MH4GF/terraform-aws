@@ -32,3 +32,22 @@ resource "aws_route53_record" "mh4gf-dev-cname" {
   records = ["cname.super.so"]
   ttl     = 300
 }
+
+# https://log.mh4gf.dev
+resource "aws_route53_record" "log-mh4gf-dev-txt" {
+  zone_id = aws_route53_zone.mh4gf-dev.zone_id
+  name    = "_vercel"
+  type    = "TXT"
+  ttl     = 300
+  records = [
+    "vc-domain-verify=log.mh4gf.dev,d7eebbd68388762f4485",
+  ]
+}
+
+resource "aws_route53_record" "log-mh4gf-dev-cname" {
+  name    = "log"
+  zone_id = aws_route53_zone.mh4gf-dev.zone_id
+  type    = "CNAME"
+  records = ["cname.vercel-dns.com"]
+  ttl     = 300
+}
