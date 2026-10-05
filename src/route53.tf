@@ -38,3 +38,12 @@ resource "aws_route53_record" "log-mh4gf-dev-cname" {
   records = ["cname.vercel-dns.com"]
   ttl     = 300
 }
+
+# https://talks.mh4gf.dev
+resource "aws_route53_record" "talks-mh4gf-dev-cname" {
+  name    = "talks"
+  zone_id = aws_route53_zone.mh4gf-dev.zone_id
+  type    = "CNAME"
+  records = ["cname.vercel-dns.com"]
+  ttl     = 300
+}
